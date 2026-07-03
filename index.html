@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 1st Anniversary My Princess | Our Love Journey ❤️</title>
+  
+  <!-- Premium Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Playfair+Display:ital,wght@0,600;0,800;1,400&family=Sacramento&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ================= LOVE LOADER SCREEN ================= -->
+  <div id="love-loader" class="loader-overlay">
+    <div class="loader-content">
+      <div class="heart-loader-container">
+        <!-- Beating Heart Silhouette -->
+        <svg class="heart-loader-svg" viewBox="0 0 32 29.6">
+          <path d="M23.6,0c-3.4,0-6.3,2.7-7.6,5.6C14.7,2.7,11.8,0,8.4,0C3.8,0,0,3.8,0,8.4c0,9.4,9.5,11.9,16,21.2
+          c6.1-9.3,16-12.1,16-21.2C32,3.8,28.2,0,23.6,0z"/>
+        </svg>
+        <!-- Liquid filling overlay -->
+        <div class="heart-loader-fill" id="loader-fill"></div>
+      </div>
+      <h2 class="loader-text" id="loader-text">Calculating Love Level...</h2>
+      <div class="loader-percent" id="loader-percent">0%</div>
+    </div>
+  </div>
+
+  <!-- Audio Element -->
+  <audio id="bg-music" src="assets/music.mp3" loop preload="auto"></audio>
+
+  <!-- Audio Controller Button -->
+  <button id="music-toggle" class="music-btn paused" aria-label="Toggle background music">
+    <div class="disc">
+      <span class="music-icon">🎵</span>
+    </div>
+    <div class="sound-waves">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </button>
+
+  <!-- Animated Background Canvas & Overlay -->
+  <div class="background-container">
+    <div class="heart-particles" id="heart-particles"></div>
+    <div class="sparkles-container" id="sparkles-container"></div>
+    <div class="gradient-overlay"></div>
+  </div>
+
+  <!-- Main Wrapper -->
+  <main class="main-wrapper">
+    
+    <!-- ================= OPENING SCREEN ================= -->
+    <section id="welcome-screen" class="screen">
+      <div class="glass-card fade-in">
+        <div class="heart-pulse-logo">❤️</div>
+        <h1 class="romantic-title">Happy 1st Anniversary</h1>
+        <p class="romantic-subtitle">"Every heartbeat reminds me of you."</p>
+        
+        <button id="start-btn" class="primary-btn glow-effect">
+          <span>Start Our Love Journey 💖</span>
+          <div class="btn-shine"></div>
+        </button>
+      </div>
+    </section>
+
+    <!-- ================= LOVE QUIZ SCREEN ================= -->
+    <section id="quiz-screen" class="screen">
+      <div class="glass-card quiz-card">
+        
+        <!-- Progress Indicator & Bar -->
+        <div class="quiz-header">
+          <span class="progress-text" id="progress-text">Question 1 / 5</span>
+          <div class="progress-track">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+
+        <!-- Question Box -->
+        <div class="question-container">
+          <p id="question-text" class="question-text">Did we first meet during our college admission interview? 🎓</p>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="quiz-buttons">
+          <!-- Yes button has floating heart effect class -->
+          <button id="yes-btn" class="primary-btn yes-btn glow-effect">
+            <span>Yes ❤️</span>
+            <div class="yes-heart-emitters"></div>
+          </button>
+          
+          <!-- No button has runaway evasion behavior -->
+          <button id="no-btn" class="secondary-btn no-btn">
+            <span>No 💔</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= CORRECT POPUP OVERLAY ================= -->
+    <div id="popup-overlay" class="popup-overlay">
+      <div class="glass-card popup-card scale-in">
+        <div class="popup-heart">💖</div>
+        <p id="popup-message" class="popup-message">Yay! You remembered our beautiful beginning.</p>
+        <div class="popup-hearts-burst" id="popup-burst"></div>
+      </div>
+    </div>
+
+    <!-- ================= FINAL CELEBRATION SCREEN ================= -->
+    <section id="celebration-screen" class="screen">
+      <div class="glass-card final-card">
+        <!-- Confetti/Petals Canvas -->
+        <canvas id="celebration-canvas" class="celebration-canvas"></canvas>
+        
+        <!-- UNOPENED GIFT BOX CONTAINER -->
+        <div id="gift-box-container" class="gift-box-container">
+          <div class="glowing-halo-ring"></div>
+          <div class="gift-box-wrap" id="gift-box">
+            <div class="gift-box-lid"></div>
+            <div class="gift-box-body"></div>
+            <div class="gift-ribbon-vertical"></div>
+            <div class="gift-ribbon-horizontal"></div>
+            <div class="gift-bow">
+              <div class="bow-left"></div>
+              <div class="bow-right"></div>
+            </div>
+            <div class="heart-tag">❤️ Tag</div>
+          </div>
+          <p class="gift-instruction">A special memory from AFU to AFI...<br><strong>Tap to unlock 🎁✨</strong></p>
+        </div>
+
+        <!-- PHOTO REVEAL CONTAINER (Initially hidden) -->
+        <div id="photo-reveal-container" class="photo-reveal-container hidden">
+          <!-- Final Image with Romantic Glowing Frame -->
+          <div class="final-image-container">
+            <div class="halo-circle ring-1"></div>
+            <div class="halo-circle ring-2"></div>
+            <div class="heart-frame"></div>
+            <div class="glowing-border-wrap">
+              <img id="final-love-image" 
+                   src="assets/image.jpeg" 
+                   alt="Our Beautiful Memory" 
+                   class="final-image"
+                   onerror="this.onerror=null; this.src='assets/image.jpg';">
+            </div>
+          </div>
+
+          <!-- Final Message with Animated Lines -->
+          <div class="anniversary-message">
+            <h2 class="message-line line-1" style="--line-idx: 1;">Alhamdulillah ❤️</h2>
+            <h3 class="message-line line-2" style="--line-idx: 2;">Happy 1st Anniversary</h3>
+            <p class="message-line line-3" style="--line-idx: 3;">To my world, my cutest, gorgeous, and beautiful princess of my life.</p>
+            <p class="message-line line-4" style="--line-idx: 4;">May Allah keep us together forever and bless our journey with endless happiness, love, mercy, and peace.</p>
+            <div class="signature message-line line-5" style="--line-idx: 5;">Forever Yours,</div>
+            <div class="initials message-line line-6" style="--line-idx: 6;">AFU ❤️ AFI</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
